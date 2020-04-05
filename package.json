@@ -71,13 +71,31 @@
     "win": {
       "target": "nsis",
       "certificateSubjectName": "remot3.it, Inc.",
-      "certificateSha1": "9E10BD8F0629D58681CFE5EB5522EA297565FFA4"
+      "certificateSha1": "9E10BD8F0629D58681CFE5EB5522EA297565FFA4",
+      "files": [
+        {
+          "from": "bin/remoteit.windows.amd64.exe",
+          "to": "bin/remoteit"
+        }
+      ]
     },
     "nsis": {
       "oneClick": true,
       "perMachine": true,
       "deleteAppDataOnUninstall": true,
       "shortcutName": "remote.it"
+    },
+    "mac": {
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false,
+      "entitlements": "build/entitlements.mac.plist",
+      "entitlementsInherit": "build/entitlements.mac.plist",
+      "files": [
+        {
+          "from": "bin/remoteit.darwin.amd64",
+          "to": "bin/remoteit"
+        }
+      ]
     },
     "linux": {
       "category": "Network",
@@ -90,13 +108,13 @@
             "arm64"
           ]
         }
+      ],
+      "files": [
+        {
+          "from": "bin/remoteit.linux.${arch}",
+          "to": "bin/remoteit"
+        }
       ]
-    },
-    "mac": {
-      "hardenedRuntime": true,
-      "gatekeeperAssess": false,
-      "entitlements": "build/entitlements.mac.plist",
-      "entitlementsInherit": "build/entitlements.mac.plist"
     },
     "files": [
       "build/**/*",

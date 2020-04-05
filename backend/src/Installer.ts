@@ -27,6 +27,7 @@ export default class Installer {
   version: string
   dependencies: string[]
   tempFile?: string
+  srcBinPath = path.join(__dirname, '../bin/remoteit.darwin.amd64')
 
   static EVENTS = {
     progress: 'binary/install/progress',
@@ -57,7 +58,7 @@ export default class Installer {
    */
   isInstalled() {
     const check = this.dependencyNames.concat(this.binaryName)
-    const missing = check.find(fileName => !this.fileExists(fileName))
+    const missing = check.find((fileName) => !this.fileExists(fileName))
     d('IS INSTALLED?', { installed: !missing })
     return !missing
   }
@@ -137,12 +138,12 @@ export default class Installer {
   }
 
   get dependencyNames() {
-    return this.dependencies.map(d => (environment.isWindows ? d + '.exe' : d))
+    return this.dependencies.map((d) => (environment.isWindows ? d + '.exe' : d))
   }
 
   private download(progress: ProgressCallback = () => {}) {
     return new Promise((resolve, reject) => {
-      const url = `https://github.com/${this.repoName}/releases/download/v${this.version}/${this.downloadFileName}`
+      let url = `https://github.com/${this.repoName}/releases/download/v${this.version}/${this.downloadFileName}`
 
       Logger.info('DOWNLOADING', { url })
       d(`Downloading ${this.name}:`, url)
@@ -150,13 +151,13 @@ export default class Installer {
       progress(0)
 
       https
-        .get(url, res1 => {
+        .get(url, (res1) => {
           if (!res1 || !res1.headers || !res1.headers.location) {
             d('No response from download URL', res1, this)
             return reject(new Error('No response from download URL!'))
           }
           https
-            .get(res1.headers.location, res2 => {
+            .get(res1.headers.location, (res2) => {
               if (!res2 || !res2.headers || !res2.headers['content-length'])
                 return reject(new Error('No response from location URL!'))
               const total = parseInt(res2.headers['content-length'], 10)
@@ -164,7 +165,7 @@ export default class Installer {
               if (!this.tempFile) return reject(new Error('No temp file path set'))
               const w = fs.createWriteStream(this.tempFile)
               res2.pipe(w)
-              res2.on('data', data => {
+              res2.on('data', (data) => {
                 completed += data.length
                 progress(completed / total)
               })
