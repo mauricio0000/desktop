@@ -165,6 +165,7 @@ const useStyles = makeStyles({
     borderTop: `1px solid ${styles.colors.grayLight}`,
     minHeight: 62,
     justifyContent: 'space-evenly',
+    backgroundColor: styles.colors.white,
     '& .MuiButtonBase-root': { maxWidth: '18%' },
   },
 })

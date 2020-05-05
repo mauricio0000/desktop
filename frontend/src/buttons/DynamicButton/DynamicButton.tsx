@@ -51,7 +51,7 @@ export const DynamicButton: React.FC<Props> = ({
     if (color)
       styles = {
         backgroundColor: colors[color],
-        color: colors.white,
+        color: 'white',
         fontSize: 11,
         fontWeight: 500,
         letterSpacing: 1,
@@ -67,7 +67,7 @@ export const DynamicButton: React.FC<Props> = ({
     if (color)
       styles = {
         backgroundColor: colors[color],
-        color: colors.white,
+        color: 'white',
       }
     return (
       <Button style={styles} variant="contained" onClick={clickHandler} disabled={disabled} size={size}>

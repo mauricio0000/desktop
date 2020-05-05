@@ -36,6 +36,30 @@ export type Color =
   | 'black'
   | 'rpi'
 
+const lightTheme: { [key in Color]: string } = {
+  primary: '#0096e7',
+  primaryLight: '#9ed3f0',
+  primaryHighlight: '#edf8ff',
+  secondary: '#0d6dba',
+  successLight: '#a4db4c',
+  success: '#75bd00',
+  successDark: '#436807',
+  dangerLight: '#e07562',
+  danger: '#d6290a',
+  dangerDark: '#871a06',
+  warning: '#ed9912',
+  grayLight: '#dbdbdb',
+  grayLighter: '#efefef',
+  grayLightest: '#fafafa',
+  gray: '#bbb',
+  grayDarkest: '#333',
+  grayDarker: '#595959',
+  grayDark: '#999',
+  white: 'white',
+  black: 'black',
+  rpi: '#C51A4A',
+}
+
 export const colors: { [key in Color]: string } = {
   primary: '#0096e7',
   primaryLight: '#9ed3f0',
@@ -48,15 +72,15 @@ export const colors: { [key in Color]: string } = {
   danger: '#d6290a',
   dangerDark: '#871a06',
   warning: '#ed9912',
-  grayLightest: '#fafafa',
-  grayLighter: '#efefef',
-  grayLight: '#dbdbdb',
-  gray: '#bbb',
+  grayLightest: '#333',
+  grayLighter: '#444',
+  grayLight: '#555',
+  gray: '#777',
   grayDark: '#999',
-  grayDarker: '#595959',
-  grayDarkest: '#333',
-  white: 'white',
-  black: 'black',
+  grayDarker: '#aaa',
+  grayDarkest: '#bbb',
+  white: '#333',
+  black: '#ccc',
   rpi: '#C51A4A',
 }
 

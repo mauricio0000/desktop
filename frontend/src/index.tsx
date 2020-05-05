@@ -20,9 +20,10 @@ analytics.setup()
 const gutters = 28
 const theme = createMuiTheme({
   palette: {
-    primary: { main: colors.primary },
-    secondary: { main: colors.secondary },
+    primary: { main: colors.primary, contrastText: 'white' },
+    secondary: { main: colors.secondary, contrastText: 'white' },
     error: { main: colors.danger },
+    type: 'dark',
   },
   typography: { fontFamily: 'Roboto, san-serif' },
   overrides: {
