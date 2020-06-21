@@ -75,7 +75,9 @@
       "oneClick": true,
       "perMachine": true,
       "deleteAppDataOnUninstall": true,
-      "shortcutName": "remote.it"
+      "allowToChangeInstallationDirectory": true,
+      "shortcutName": "remote.it",
+      "include": "installer.nsh"
     },
     "linux": {
       "category": "Network",
